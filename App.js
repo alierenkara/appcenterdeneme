@@ -7,6 +7,8 @@
  */
 
 import React, {Fragment} from 'react';
+import codePush from "react-native-code-push";
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,6 +25,8 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
 
 const App = () => {
   return (
@@ -111,4 +115,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+App = CodePush(codePushOptions)(App);
+export default App
